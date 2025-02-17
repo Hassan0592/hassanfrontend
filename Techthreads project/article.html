@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article - TechThreads</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-link">
+        <div class="logo">
+            <img src="techthreads.png" alt="TechThreads Logo">
+            <h1>TechThreads</h1>
+        </div>
+        <a href="signin.html" class="sign-in">Sign In</a>
+    </header>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="startups.html">Startups</a>
+        <a href="ai.html">AI</a>
+        <a href="security.html">Security</a>
+        <a href="apps.html">Apps</a>
+        <a href="venture.html">Venture</a>
+        <a href="newsletter.html">Newsletter</a>
+    </nav>
+
+    <div class="article-container">
+        <h2 id="article-title"></h2>
+        <img id="article-image" src="" alt="" class="article-image">
+        <p id="article-content"></p>
+        <a id="full-article-link" href="#" target="_blank">Read Full Article</a>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Top Row: Logo + Socials -->
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="techthreads.png" alt="TechThreads Logo">
+                </div>
+                <div class="footer-socials">
+                    <a href="https://x.com/techthreads1" target="_blank"><img src="x logo.png" alt="X"></a>
+                    <a href="https://instagram.com/techthreads5" target="_blank"><img src="instalogo.jpg" alt="Instagram"></a>
+                    <a href="https://threads.net/techthreads5" target="_blank"><img src="threads.png" alt="Threads"></a>
+                    <a href="https://www.youtube.com/@TechThreads-m5c" target="_blank"><img src="youtube.png" alt="YouTube"></a>
+                </div>
+            </div>
+    
+            <!-- Middle Row: Links -->
+            <div class="footer-links">
+                <div class="footer-column">
+                    <a href="#">Staff</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Advertise</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Cookies</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
+    
+            <!-- Bottom Row: Copyright -->
+            <div class="footer-copyright">
+                <p>&copy; 2025 TechThreads. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const article = JSON.parse(localStorage.getItem("selectedArticle"));
+            if (!article) {
+                window.location.href = "index.html";
+                return;
+            }
+
+            document.getElementById("article-title").textContent = article.title;
+            document.getElementById("article-content").innerHTML = article.content || article.description || "Full article unavailable.";
+            document.getElementById("article-image").src = article.urlToImage || "";
+            document.getElementById("full-article-link").href = article.url;
+        });
+    </script>
+</body>
+</html>
